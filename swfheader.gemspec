@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swfheader}
-  s.version = "0.23.0.alpha2"
+  s.version = "0.23.0.alpha3.3"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["DBA", "Dennis Zhuang"]
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "fixtures/clicktag-decompressed.swf",
      "fixtures/clicktag.swf",
+     "fixtures/smallgoat.jpg",
      "lib/swfheader.rb",
      "lib/swfheader/packed-bit-obj.rb",
      "lib/swfheader/swf-compression.rb",

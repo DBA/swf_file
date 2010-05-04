@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'test/unit'
 require 'shoulda'
 
@@ -8,7 +7,4 @@ require 'swiff'
 
 def fixture_path(filename)
   File.join(File.dirname(__FILE__), '..', 'fixtures', filename)
-end
-
-class Test::Unit::TestCase
 end
