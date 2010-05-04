@@ -1,4 +1,4 @@
-==Swf Util
+==swfheader
 swf util is a lightweight tool to read swf header¡¢compress/decompress swf for Ruby¡£It is implemented in pure Ruby¡£
 
 ==Author
