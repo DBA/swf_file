@@ -1,6 +1,6 @@
 This gem is based on Dennis Zhuang's swf-util library, made available at http://code.google.com/p/swf-util/, under the Apache License 2.0 (vide http://www.apache.org/licenses/LICENSE-2.0).
 
-The fixture files clicktag-decompressed.swf, clicktag.swf, originally made available under the MIT license (vide http://www.opensource.org/licenses/mit-license.php) at http://github.com/2performant/swiff, are included in this gem, without modification, under their original copyright © 2010 held by 2Perfomant.
+The fixture files smallgoat.jpg, clicktag-decompressed.swf, clicktag.swf, originally made available under the MIT license (vide http://www.opensource.org/licenses/mit-license.php) at http://github.com/2performant/swiff, are included in this gem, without modification, under their original copyright © 2010 held by 2Perfomant.
 
 All modifications and additions contained within this gem, made available at http://github.com/DBA/swfheader, are licensed under the following terms and conditions:
 

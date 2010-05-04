@@ -5,20 +5,25 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swfheader}
-  s.version = "0.23.0.alpha1"
+  s.version = "0.23.0.alpha2"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
-  s.authors = ["DBA"]
+  s.authors = ["DBA", "Dennis Zhuang"]
   s.date = %q{2010-05-04}
-  s.description = %q{Ruby SWF utility gem to read SWF file headers, as well as SWF compression and decompression. This gem supports Ruby v1.8.7 and Ruby 1.9.2}
+  s.description = %q{Based on the now outdated Dennis Zhuang's original swfheader gem, this version provides you a Ruby API to read SWF file headers. Also supported is SWF file compression and decompression. Please note that this gem targets Ruby v1.9.2dev, while supporting versions 1.9.1 and 1.8.7.}
   s.email = %q{dba@gnomeslab.com}
   s.extra_rdoc_files = [
-    "README"
+    "LICENSE",
+     "README"
   ]
   s.files = [
     ".gitignore",
+     "LICENSE",
      "README",
+     "Rakefile",
      "VERSION",
+     "fixtures/clicktag-decompressed.swf",
+     "fixtures/clicktag.swf",
      "lib/swfheader.rb",
      "lib/swfheader/packed-bit-obj.rb",
      "lib/swfheader/swf-compression.rb",
@@ -26,7 +31,8 @@ Gem::Specification.new do |s|
      "lib/swfheader/swf-decompressor.rb",
      "lib/swfheader/swf-header.rb",
      "lib/swfheader/swf-util.rb",
-     "swfheader.gemspec.old",
+     "swfheader.gemspec",
+     "test/helper.rb",
      "test/test.rb"
   ]
   s.homepage = %q{http://github.com/DBA/swfheader}
@@ -35,7 +41,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{SWF headers reader, along with SWF compression and decompression.}
   s.test_files = [
-    "test/test.rb"
+    "test/helper.rb",
+     "test/test.rb"
   ]
 
   if s.respond_to? :specification_version then
