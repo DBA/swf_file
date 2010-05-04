@@ -1,0 +1,27 @@
+==Swf Util
+swf util is a lightweight tool to read swf header¡¢compress/decompress swf for Ruby¡£It is implemented in pure Ruby¡£
+
+==Author
+  Dennis Zhuang<killme2008@gmail.com>
+
+==Requirements
+  Ruby>=1.8.0 and <=1.9.0 on linux,windows and jruby
+==Install
+  gem install swfheader-0.10.gem
+
+==Example  
+Example:
+#read swf head
+require 'swfheader'
+header=SwfUtil::read_header("test.swf")
+header.inspect
+header.version
+header.frame_rate
+......
+
+#decompress swf
+SwfUtil::decompress_swf("test.swf","test_decompressed.swf")
+
+#compress swf
+SwfUtil::compress_swf("test.swf","test_compressed.swf")
+
