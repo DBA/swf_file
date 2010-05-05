@@ -4,12 +4,9 @@ module SwfUtil
     
     swf_header = SWFHeader.new(file)
     
-    if block_given?
-      raise true
-      yield(swf_header) 
-    else
-      swf_header
-    end
+    yield(swf_header) if block_given?
+    
+    swf_header
   end
   
   def self.compress_swf(from,to=from.sub(/\.swf/,'_comp.swf'))

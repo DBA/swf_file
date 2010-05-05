@@ -1,12 +1,4 @@
 require 'rake'
-require 'bundler'
-begin
-  Bundler.setup(:development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
 
 begin
   require 'jeweler'
@@ -25,34 +17,10 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+#test_files_pattern = 'test/{unit,functional,other,matchers}/**/*_test.rb'
+test_files_pattern = 'test/unit/swf_file_test.rb'
+Rake::TestTask.new do |t|
+  t.libs << 'lib'
+  t.pattern = test_files_pattern
+  t.verbose = true
 end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must install spicycode-rcov"
-  end
-end
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "swfutil #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
-
-task :test => :check_dependencies
-task :default => :test
