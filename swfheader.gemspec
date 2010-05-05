@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swfheader}
-  s.version = "0.23.0.alpha5.1"
+  s.version = "0.23.0.alpha1"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["DBA", "Dennis Zhuang"]
@@ -25,6 +25,8 @@ Gem::Specification.new do |s|
      "fixtures/clicktag-decompressed.swf",
      "fixtures/clicktag.swf",
      "fixtures/smallgoat.jpg",
+     "lib/swf_file.rb",
+     "lib/swf_file/parser.rb",
      "lib/swfheader.rb",
      "lib/swfheader/packed-bit-obj.rb",
      "lib/swfheader/swf-compression.rb",
@@ -32,7 +34,10 @@ Gem::Specification.new do |s|
      "lib/swfheader/swf-decompressor.rb",
      "lib/swfheader/swf-header.rb",
      "lib/swfheader/swf-util.rb",
-     "swfheader.gemspec"
+     "swfheader.gemspec",
+     "test/test_helper.rb",
+     "test/unit/swf_file_test.rb",
+     "test/unit/swfutil_test.rb"
   ]
   s.homepage = %q{http://github.com/DBA/swfheader}
   s.rdoc_options = ["--charset=UTF-8"]
