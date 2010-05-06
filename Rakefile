@@ -3,12 +3,12 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "swfheader"
-    gemspec.summary = "SWF headers reader, along with SWF compression and decompression."
-    gemspec.description = "Based on the now outdated Dennis Zhuang's original swfheader gem, this version provides you a Ruby API to read SWF file headers. Also supported is SWF file compression and decompression. Please note that this gem targets Ruby v1.9.2dev, while supporting versions 1.9.1 and 1.8.7."
+    gemspec.name = "swf_file"
+    gemspec.summary = "SWF File is lightweight gem to read swf file headers from within a Ruby application"
+    gemspec.description = "Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application. This gem is fully written in Ruby and is compatible with Ruby v1.9.x"
     gemspec.email = "dba@gnomeslab.com"
-    gemspec.homepage = "http://github.com/DBA/swfheader"
-    gemspec.authors = ["DBA", "Dennis Zhuang"]
+    gemspec.homepage = "http://github.com/DBA/swf_file"
+    gemspec.authors = ["DBA"]
 
     # dependencies defined in Gemfile
   end
@@ -24,3 +24,5 @@ Rake::TestTask.new do |t|
   t.pattern = test_files_pattern
   t.verbose = true
 end
+
+task :default => :test

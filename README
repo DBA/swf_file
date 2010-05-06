@@ -1,27 +1,27 @@
-==swfheader
-swf util is a lightweight tool to read swf header¡¢compress/decompress swf for Ruby¡£It is implemented in pure Ruby¡£
+==Introduction
+  Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application.
 
-==Author
-  Dennis Zhuang<killme2008@gmail.com>
+==Ruby compatibility
+  Target version: 1.9.2dev
+  Also compatible with: 1.9.1-p376 and 1.8.7-p
+  
+  Not tested with versions under 1.8.7-p. Should you use this lib with other ruby versions, please provide feedback.
 
-==Requirements
-  Ruby>=1.8.0 and <=1.9.0 on linux,windows and jruby
 ==Install
-  gem install swfheader-0.10.gem
+  gem install swf_file
 
-==Example  
-Example:
-#read swf head
-require 'swfheader'
-header=SwfUtil::read_header("test.swf")
-header.inspect
-header.version
-header.frame_rate
-......
+==LICENSE
+  Please refer to the LICENSE file.
 
-#decompress swf
-SwfUtil::decompress_swf("test.swf","test_decompressed.swf")
+==Example
+  TODO
 
-#compress swf
-SwfUtil::compress_swf("test.swf","test_compressed.swf")
-
+==Issues, improvements, feedback an suggestions
+  To report issues, please use GitHub's issue manager (http://github.com/DBA/swf_file/issues). Meanwhile, feel free to fork the project and submit your modifications.
+  
+  Should you wish to contact me directly, please use GitHub's message box or the email available at the Rakefile.
+  
+==Pending
+  * Cleanup the class PackedBitObject, which still suffers from the pure import from SwfUtil
+  * Modularize SwfHeader a bit more
+  * Docs
