@@ -4,7 +4,7 @@ module Compression
       if memoize_result
         @compressed ||= @buffer[0].ord == ?C.ord
       else
-        @buffer[0].ord == ?C.ord
+        @compressed = @buffer[0].ord == ?C.ord
       end
     end
 

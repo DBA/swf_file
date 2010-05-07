@@ -5,21 +5,20 @@
 
 Gem::Specification.new do |s|
   s.name = %q{swf_file}
-  s.version = "0.1.0"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["DBA"]
-  s.date = %q{2010-05-06}
+  s.date = %q{2010-05-08}
   s.description = %q{Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application. This gem is fully written in Ruby and is compatible with Ruby v1.9.x}
   s.email = %q{dba@gnomeslab.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README"
+     "README.rdoc"
   ]
   s.files = [
     ".gitignore",
      "LICENSE",
-     "README",
      "Rakefile",
      "VERSION",
      "fixtures/clicktag-decompressed.swf",
@@ -31,6 +30,7 @@ Gem::Specification.new do |s|
      "lib/swf_file/packed_bit_object.rb",
      "lib/swf_file/parser.rb",
      "lib/swf_file/swf_header.rb",
+     "swf_file.gemspec",
      "test/test_helper.rb",
      "test/unit/swf_file_test.rb"
   ]

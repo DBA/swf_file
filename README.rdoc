@@ -1,0 +1,43 @@
+=swf_file
+  Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application.
+
+==Ruby compatibility
+  Target version: 1.9.2dev
+  Also compatible with: 1.9.1-p376 and 1.8.7-p
+  
+  Not tested with versions under 1.8.7-p. Should you use this lib with other ruby versions, please provide feedback.
+
+==Install
+  gem install swf_file
+
+==LICENSE
+  Please refer to the LICENSE file.
+
+==Example
+  swf = SwfFile.header 'clicktag.swf' # load the file
+  
+  # Access the various header options. Please check the unit tests for more usage examples.
+  puts swf.size
+  puts swf.compressed?
+  puts swf.version
+  puts swf.bit_count
+  puts swf.xmax
+  puts swf.ymax
+  puts swf.width # In pixels
+  puts swf.height # In pixels
+  puts swf.frame_rate
+  puts swf.frame_count
+  puts swf.duration # In milliseconds
+  puts swf.avm_version
+  puts swf.signature
+  
+
+==Issues, improvements, feedback an suggestions
+  To report issues, please use GitHub's issue manager (http://github.com/DBA/swf_file/issues). Meanwhile, feel free to fork the project and submit your modifications.
+  
+  Should you wish to contact me directly, please use GitHub's message box or the email available at the Rakefile.
+  
+==Pending
+  * Cleanup the class PackedBitObject, which still suffers from the pure import from SwfUtil
+  * Docs
+  * Modularize SwfHeader a bit more

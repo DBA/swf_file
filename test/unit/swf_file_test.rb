@@ -1,9 +1,11 @@
-require_relative '../test_helper'
+$:.unshift(File.join(File.dirname(__FILE__), '../', '../', 'test'))
+
+require 'test_helper'
 
 class SwfFileTest < Test::Unit::TestCase
 
   context "SwfFile" do
-    context "Initialization" do
+    context "instance methods" do
       should "not be initializable without an SWF file path" do
         assert_raise(ArgumentError) { SwfFile.new }
       end
@@ -11,7 +13,14 @@ class SwfFileTest < Test::Unit::TestCase
       should "raise an error if an invalid path is provided" do
         assert_raise(RuntimeError) { SwfFile.new "/path_to_imaginary_file" }
       end
-    end # Initialization context
+      
+      should "return a header with the regular properties" do
+        swf = SwfFile.new fixture_path('clicktag.swf')
+        assert_equal SwfHeader, swf.header.class
+        assert_equal 4156, swf.header.size
+        assert_equal swf.compressed?, swf.header.compressed?
+      end
+    end # instance methods
     
     context "class method header" do      
       should "raise an error when not provided with an SWF" do
@@ -32,18 +41,18 @@ class SwfFileTest < Test::Unit::TestCase
       
       should "state if the swf was originally compressed" do
         assert @header.compressed?
-        refute SwfFile.header(fixture_path('clicktag-decompressed.swf')).compressed?
+        assert !SwfFile.header(fixture_path('clicktag-decompressed.swf')).compressed?
       end
       
       should "not make available private compression module methods" do
         %w{ :buffer_compressed? :strip_buffer_header :decompress_buffer! }.each do |method|
-          refute @header.respond_to?(method)
+          assert !@header.respond_to?(method)
         end
       end
       
       should "state if its buffer is currently compressed" do
         assert @header.compressed?
-        refute @header.compressed?(false)
+        assert !@header.compressed?(false)
       end
       
       should "have the version" do
