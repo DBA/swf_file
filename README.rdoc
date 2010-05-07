@@ -1,5 +1,5 @@
 =swf_file
-  Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application.
+Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application.
 
 ==Ruby compatibility
   Target version: 1.9.2dev
@@ -14,22 +14,30 @@
   Please refer to the LICENSE file.
 
 ==Example
-  swf = SwfFile.header 'clicktag.swf' # load the file
+  header = SwfFile.header 'clicktag.swf' # load the file
   
   # Access the various header options. Please check the unit tests for more usage examples.
-  puts swf.size
-  puts swf.compressed?
-  puts swf.version
-  puts swf.bit_count
-  puts swf.xmax
-  puts swf.ymax
-  puts swf.width # In pixels
-  puts swf.height # In pixels
-  puts swf.frame_rate
-  puts swf.frame_count
-  puts swf.duration # In milliseconds
-  puts swf.avm_version
-  puts swf.signature
+  puts header.size
+  puts header.compressed?
+  puts header.version
+  puts header.bit_count
+  puts header.xmax
+  puts header.ymax
+  puts header.width # In pixels
+  puts header.height # In pixels
+  puts header.frame_rate
+  puts header.frame_count
+  puts header.duration # In milliseconds
+  puts header.avm_version
+  puts header.signature
+  
+  # You can also pass a block to SwfFile.header
+  puts SwfFile.header 'clicktag.swf' { |h| puts h.duration }
+  
+  # It's also possible to create instances of SwfFile
+  swf = SwfFile.new 'clicktag.swf'
+  swf.header # => SwfHeader class instance equivalent to the return of SwfFile.header(<file>)
+  swf.compressed? # => Helper method. Effectively it's an alias to same as SwfHeader#compressed?
   
 
 ==Issues, improvements, feedback an suggestions
