@@ -38,6 +38,12 @@ Please refer to the LICENSE file.
   # It's also possible to create instances of SwfFile
   swf = SwfFile.new 'clicktag.swf'
   swf.header # => SwfHeader class instance equivalent to the return of SwfFile.header(<file>)
+  swf.header.duration
+  
+  # Instances of SwfFile also receive blocks
+  swf.header { |h| h.duration }
+  
+  # SwfFile instance helper method
   swf.compressed? # => Helper method. Effectively it's an alias to same as SwfHeader#compressed?
   
 
