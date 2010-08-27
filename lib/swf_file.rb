@@ -1,6 +1,7 @@
-$:.unshift File.join(File.dirname(__FILE__), 'swf_file') unless $:.include? File.join(File.dirname(__FILE__), 'swf_file')
+$:.unshift File.join(File.dirname(__FILE__), 'swf_file') unless $:.include? File.join(File.dirname(__FILE__),
+                                                                                      'swf_file')
 
-autoload :Zlib, 'zlib'
+require 'zlib'
 
 module SwfFile
 
