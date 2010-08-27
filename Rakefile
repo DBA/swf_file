@@ -17,6 +17,7 @@ end
 desc "build the gem and release it to rubygems.org"
 task :release => :gem do
   sh "gem push pkg/swf_file-#{gemspec.version}.gem"
+  sh "rm -rf pkg/"
 end
 
 task :default => :test
