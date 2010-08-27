@@ -7,16 +7,16 @@ class SwfFileTest < Test::Unit::TestCase
   context "SwfFile" do
     context "instance methods" do
       should "not be initializable without an SWF file path" do
-        assert_raise(ArgumentError) { SwfFile.new }
+        assert_raise(ArgumentError) { SwfFile::FlashFile.new }
       end
     
       should "raise an error if an invalid path is provided" do
-        assert_raise(RuntimeError) { SwfFile.new "/path_to_imaginary_file" }
+        assert_raise(RuntimeError) { SwfFile::FlashFile.new "/path_to_imaginary_file" }
       end
       
       should "return a header with the regular properties" do
-        swf = SwfFile.new fixture_path('clicktag.swf')
-        assert_equal SwfHeader, swf.header.class
+        swf = SwfFile::FlashFile.new fixture_path('clicktag.swf')
+        assert_equal SwfFile::SwfHeader, swf.header.class
         assert_equal 4156, swf.header.size
         assert_equal swf.compressed?, swf.header.compressed?
       end
@@ -24,15 +24,15 @@ class SwfFileTest < Test::Unit::TestCase
     
     context "class method header" do      
       should "raise an error when not provided with an SWF" do
-        assert_raise(RuntimeError) { SwfFile.header fixture_path('smallgoat.jpg') }
+        assert_raise(RuntimeError) { SwfFile::FlashFile.header fixture_path('smallgoat.jpg') }
       end
       
       setup do
-        @header = SwfFile.header fixture_path('clicktag.swf')
+        @header = SwfFile::FlashFile.header fixture_path('clicktag.swf')
       end
       
       should "return an instance of SwfHeader" do
-        assert_equal SwfHeader, @header.class
+        assert_equal SwfFile::SwfHeader, @header.class
       end
       
       should "indicate the file's size" do
@@ -41,7 +41,7 @@ class SwfFileTest < Test::Unit::TestCase
       
       should "state if the swf was originally compressed" do
         assert @header.compressed?
-        assert !SwfFile.header(fixture_path('clicktag-decompressed.swf')).compressed?
+        assert !SwfFile::FlashFile.header(fixture_path('clicktag-decompressed.swf')).compressed?
       end
       
       should "not make available private compression module methods" do

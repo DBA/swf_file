@@ -7,5 +7,5 @@ require 'ruby-debug'
 require 'swf_file'
 
 def fixture_path(filename)
-  File.join(File.dirname(__FILE__), '..', 'fixtures', filename)
+  File.join(File.dirname(__FILE__), 'fixtures', filename)
 end

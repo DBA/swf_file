@@ -15,7 +15,7 @@ Not tested with versions under 1.8.7. Should you use this lib with other ruby ve
 Please refer to the LICENSE file.
 
 ==Example
-  header = SwfFile.header 'clicktag.swf' # load the file
+  header = SwfFile::FlashFile.header 'clicktag.swf' # load the file
   
   # Access the various header options. Please check the unit tests for more usage examples.
   puts header.size
@@ -32,18 +32,18 @@ Please refer to the LICENSE file.
   puts header.avm_version
   puts header.signature
   
-  # You can also pass a block to SwfFile.header
-  puts SwfFile.header 'clicktag.swf' { |h| puts h.duration }
+  # You can also pass a block to SwfFile::FlashFile.header
+  puts SwfFile::FlashFile.header 'clicktag.swf' { |h| puts h.duration }
   
-  # It's also possible to create instances of SwfFile
-  swf = SwfFile.new 'clicktag.swf'
-  swf.header # => SwfHeader class instance equivalent to the return of SwfFile.header(<file>)
+  # It's also possible to create instances of SwfFile::FlashFile
+  swf = SwfFile::FlashFile.new 'clicktag.swf'
+  swf.header # => SwfHeader class instance equivalent to the return of SwfFile::FlashFile.header(<file>)
   swf.header.duration
   
-  # Instances of SwfFile also receive blocks
+  # Instances of SwfFile::FlashFile also receive blocks
   swf.header { |h| h.duration }
   
-  # SwfFile instance helper method
+  # SwfFile::FlashFile instance helper method
   swf.compressed? # => Helper method. Effectively it's an alias to same as SwfHeader#compressed?
   
 

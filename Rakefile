@@ -1,28 +1,22 @@
 require 'rake'
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "swf_file"
-    gemspec.summary = "SWF File is lightweight gem to read swf file headers from within a Ruby application"
-    gemspec.description = "Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application. This gem is fully written in Ruby and is compatible with Ruby v1.9.x"
-    gemspec.email = "dba@gnomeslab.com"
-    gemspec.homepage = "http://github.com/DBA/swf_file"
-    gemspec.authors = ["DBA"]
-
-    # dependencies defined in Gemfile
-  end
-rescue LoadError
-  puts "Jeweler not available. Install it with: gem install jeweler"
-end
-
 require 'rake/testtask'
-#test_files_pattern = 'test/{unit,functional,other,matchers}/**/*_test.rb'
+require 'rake/gempackagetask'
+
 test_files_pattern = 'test/unit/swf_file_test.rb'
 Rake::TestTask.new do |t|
-  t.libs << 'lib'
+  t.libs << '.' << 'lib' << 'test'
   t.pattern = test_files_pattern
   t.verbose = true
+end
+
+gemspec = eval(File.read('swf_file.gemspec'))
+Rake::GemPackageTask.new(gemspec) do |pkg|
+  pkg.gem_spec = gemspec
+end
+
+desc "build the gem and release it to rubygems.org"
+task :release => :gem do
+  sh "gem push pkg/swf_file-#{gemspec.version}.gem"
 end
 
 task :default => :test
