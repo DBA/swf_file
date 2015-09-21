@@ -17,7 +17,7 @@ module SwfFile
       end
 
       def decompress_zlib(buffer)
-        Zlib::Inflate.new.inflate strip_buffer_header(_buffer)
+        Zlib::Inflate.new.inflate strip_buffer_header(buffer)
       end
 
       def decompress_lzma(buffer)
