@@ -1,10 +1,18 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ffi (1.9.10)
+    io-like (0.3.0)
+    ruby-lzma (0.4.3)
+    ruby-xz (0.2.1)
+      ffi
+      io-like
     shoulda (2.11.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ruby-lzma
+  ruby-xz
   shoulda (~> 2.11)
