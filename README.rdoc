@@ -1,4 +1,8 @@
 =swf_file
+
+Fork of Diogo Almeida swf_file to include LZMA support.
+
+
 A Ruby Gem based on swfutil lib, by Dennis Zhuang.
 SWF File is lightweight gem to read swf file headers from within a Ruby application.
 
