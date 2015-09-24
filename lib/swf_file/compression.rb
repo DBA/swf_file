@@ -1,7 +1,18 @@
 require 'lzma'
-require 'xz'
-
 module SwfFile
+
+
+
+#ZWS SWF Header
+#
+#ZWS + Version   Uncompressed Length     Compressed Length       LZMA Properties     Compressed Data
+#[0][1][2][3]       [4][5][6][7]          [8][9][10][11]       [12][13][14][15][16]       [17][n]   
+#
+#Standard LZMA Header (13 bytes)
+#
+#LZMA Properties        Uncompressed Length      Compressed Data
+#[0][1][2][3][4]    [5][6][7][8][9][10][11][12]      [13][n]
+
 
   module Compression
 
@@ -17,13 +28,18 @@ module SwfFile
       end
 
       def decompress_zlib(buffer)
-        Zlib::Inflate.new.inflate strip_buffer_header(buffer)
+        puts "decompress zlib"
+        Zlib::Inflate.new.inflate strip_buffer_header(buffer,8)
       end
 
       def decompress_lzma(buffer)
-        #XZ.decompress_file('output.lzma.xz','output.raw')
-        XZ.decompress(strip_buffer_header(buffer))
-        #LZMA.decompress(strip_buffer_header(buffer))
+        # LZMA format is lzma_properties (5 bytes) 
+        # followed by uncompressed size (64 bit) 
+        # followed by compressed data
+        len = buffer[4..7].unpack('V').first - 8 
+        lzma_props = buffer[12..16]
+        compressed_data = buffer[17,buffer.size-17]
+        LZMA.decompress(lzma_props << [len].pack("Q") << compressed_data)
       end
 
       def decompress_buffer!
@@ -37,8 +53,9 @@ module SwfFile
         @buffer = _buffer
       end
 
-      def strip_buffer_header(buffer)
-        buffer[8, buffer.size - 8]
+      def strip_buffer_header(buffer,size)
+        puts "strip buffer #{size}"
+        buffer[size, buffer.size - size]
       end
 
   end # Compression
