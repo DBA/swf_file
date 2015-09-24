@@ -28,7 +28,6 @@ module SwfFile
       end
 
       def decompress_zlib(buffer)
-        puts "decompress zlib"
         Zlib::Inflate.new.inflate strip_buffer_header(buffer,8)
       end
 
@@ -54,7 +53,6 @@ module SwfFile
       end
 
       def strip_buffer_header(buffer,size)
-        puts "strip buffer #{size}"
         buffer[size, buffer.size - size]
       end
 
