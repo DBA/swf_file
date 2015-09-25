@@ -1,10 +1,15 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ruby-lzma (0.4.3)
     shoulda (2.11.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ruby-lzma
   shoulda (~> 2.11)
+
+BUNDLED WITH
+   1.10.6

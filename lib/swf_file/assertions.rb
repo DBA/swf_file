@@ -8,7 +8,7 @@ module SwfFile
 
     private
       def swf?
-        @buffer[0,3] == 'FWS' || @buffer[0,3] == 'CWS'
+        @buffer[0,3] == 'FWS' || @buffer[0,3] == 'CWS' || @buffer[0,3] == 'ZWS'
       end
 
   end # Assertions

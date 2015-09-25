@@ -29,7 +29,7 @@ module SwfFile
       def get_swf_buffer_and_size
         size = 0
 
-        buffer = File.open(@file,"rb") do |file|
+        buffer = File.open(@file,"r") do |file|
           file.seek(4, IO::SEEK_CUR)
           size = file.read(4).unpack("L")[0]
 

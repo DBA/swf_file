@@ -4,18 +4,19 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
 
   s.name        = "swf_file"
-  s.version     = '1.1.0'
+  s.version     = '1.1.1'
   s.summary     = "SWF File is lightweight gem to read swf file headers from within a Ruby application."
 
-  s.authors     = ["Diogo Almeida"]
-  s.email       = ["dba@gnomeslab.com"]
-  s.homepage    = "http://github.com/DBA/swf_file/"
+  s.authors     = ["Joshua Ostrom"]
+  s.email       = ["joshuaostrom@gmail.com"]
+  s.homepage    = "https://github.com/joshuaostrom/swf_file"
 
-  s.description = "Based on the swfutil lib, by Dennis Zhuang, the SWF File is lightweight gem to read swf file headers from within a Ruby application. This gem is fully written in Ruby and is compatible with Ruby v1.8.7 through v1.9.2."
+  s.description = "Fork of SWF File by Diogo Almeida to include support for LZMA compressed SWFs"
 
   s.required_rubygems_version = ">= 1.3.7"
 
   s.add_development_dependency('shoulda')
+  s.add_runtime_dependency('ruby-lzma')
 
   s.files             = Dir.glob("{lib}/**/*") + %w(LICENSE README.rdoc)
 
